@@ -25,7 +25,13 @@ export default {
   methods: {
     login() {
       axios.get('/sanctum/csrf-cookie').then(response => {
-          console.log(response)
+         axios.post('/login', {
+           email:'xiajun@1234.com',
+           password:'12345678'
+         })
+         .then(response => {
+           this.$router.push({ name: 'Dashboard' })
+         })
       });
     }
   },
